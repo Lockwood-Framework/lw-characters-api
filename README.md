@@ -224,3 +224,7 @@ local lines = LWUtils.Utils.String.WrapText(tombstone.epitaph, 50, 5)
 ```
 
 50 characters per line, max 5 lines, never breaks mid-word.
+
+---
+
+Licensed under the [Rangeland Public License v1.0](LICENSE) — use it, modify it, don't sell it, don't ship it..
