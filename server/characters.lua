@@ -8,10 +8,9 @@ local LWUtils = exports['lw-shared']:GetUtils()
 ---@param  stateId  string
 ---@return          table|nil
 local function FetchCharacter(stateId)
-    return DB.single(
-        'SELECT * FROM `lw_characters` WHERE `state_id` = ?',
-        { stateId }
-    )
+    local results = DB.query('SELECT * FROM `lw_characters` WHERE `state_id` = ?', { stateId })
+    local row = results and results[1]
+    return row
 end
 
 -- ---------------------------------------------------------------------------

@@ -7,10 +7,9 @@ local DB      = exports['lw-db']:DB()
 ---@param  stateId  string
 ---@return          table|nil
 exports('GetTombstone', function(stateId)
-    return DB.single(
-        'SELECT * FROM `lw_character_tombstones` WHERE `state_id` = ?',
-        { stateId }
-    )
+    local results = DB.query('SELECT * FROM `lw_character_tombstones` WHERE `state_id` = ?', { stateId })
+    local row = results and results[1]
+    return row
 end)
 
 --- Fetches all tombstone entries for a player account.
